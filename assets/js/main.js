@@ -159,7 +159,7 @@ The content length should be {{ form.outputLength }}.
 {{ form.style.join(', ') }}
 </template>
 <template v-if="form.points">
-### Key Points
+### Key points
 Make sure to cover these key points in your answer:
 {{ form.points }}
 </template>
@@ -176,7 +176,7 @@ Make sure to cover these actions or steps in your answer:
 {{ form.steps }}
 </template>
 <template v-if="form.notes">
-### Additional Notes
+### Additional notes
 Please take into consideration the following additional notes:
 {{ form.notes }}
 </template>
