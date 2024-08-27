@@ -3,12 +3,21 @@
  */
 import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js";
 
+const Intro = {
+  template: `
+    <p>Crafting an effective prompt can be time-consuming, but this tool simplifies the process.
+    It offers a user-friendly form which guides you to enter input and the process is even easier by choosing from preset values.
+    Finally, all the inputs are combined as single prompt with structure and wording that LLM tools will understand. Whether for creative writing, business, or coding.</p>
+    <p>For more advanced prompt optimization, see an AI-based tool like <a href="https://promptperfect.jina.ai">PromptPerfect</a>.</p>
+  `
+}
+
 const Instructions = {
   template: `
     <div>
       <h2>Instructions</h2>
-      <p>Select from the recommended options to include in your prompt's content. A prompt will be generated instantly at the bottom, which you can copy and paste into an LLM.</p>
-      <p>Only the "Topic" field is mandatory; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
+      <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
+      <p>Only the "Topic" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
     </div>
   `
 };
@@ -76,7 +85,7 @@ const PromptForm = {
         <textarea id="examples" v-model="form.examples"></textarea>
       </div>
       <div>
-        <label for="steps">Action Steps:</label>
+        <label for="steps">Steps:</label>
         <textarea id="steps" v-model="form.steps"></textarea>
       </div>
       <div>
@@ -92,7 +101,7 @@ const Result = {
   methods: {
     async copyToClipboard() {
       const resultText = document.getElementById('result-code').innerText;
-      const button = document.getElementById('copy-button'); // Ensure your button has this ID
+      const button = document.getElementById('copy-button');
 
       try {
         await navigator.clipboard.writeText(resultText);
@@ -114,7 +123,13 @@ const Result = {
       <h2>Result</h2>
       <p>Paste this prompt into your AI assistant:</p>
       <button id="copy-button" class="button" role="button"  @click="copyToClipboard">Copy</button>
-      <pre><code id="result-code">## Topic&#10;&#10;{{ form.topic }}&#10;
+      <pre><code id="result-code">Write a piece about the topic given below under “Topic”.
+Ensure that your answer follows the guidance and limitations provided under “Specification”.
+Provide the answer only, without any preamble.
+
+## Topic
+{{ form.topic }}
+
 ## Specification
 <template v-if="form.purpose">
 ### Purpose
@@ -133,23 +148,25 @@ Output as a codeblock with code written in {{ form.asCodeblock }}.
 Write the content as {{ form.format }}
 </template>
 </template><template v-if="form.style.length">
-### Language Style
+### Language style
 {{ form.style.join(', ') }}
 </template><template v-if="form.points">
 ### Key Points
-Make sure to cover these as the key points:
+Make sure to cover these key points in your answer:
 {{ form.points }}
 </template><template v-if="form.examples">
 ### Examples
-Here are some examples to help you:
+Here are some examples to guide you:
 \`\`\`
-{ { form.examples } }
+{{ form.examples }}
 \`\`\`
 </template><template v-if="form.steps">
-### Action Steps
+### Steps
+Make sure to cover these actions or steps in your answer:
 {{ form.steps }}
 </template><template v-if="form.notes">
 ### Additional Notes
+Please take into consideration the following additional notes:
 {{ form.notes }}
 </template>
 </code></pre>
@@ -159,6 +176,7 @@ Here are some examples to help you:
 
 const app = createApp({
   components: {
+    Intro,
     Instructions,
     PromptForm,
     Result
@@ -185,6 +203,7 @@ const app = createApp({
           "Adults",
           "Kids",
           "Professionals",
+          "Software engineers",
           "Experts",
           "Beginners",
           "Journalists",
@@ -192,7 +211,7 @@ const app = createApp({
           "The arts community",
           "The scientific community"
         ],
-        length: ["Short", "Medium", "Long"],
+        length: ["short", "medium", "long", "a sentence", "a paragraph", 'a few paragraphs', "a page"],
         asCodeblock: ["Markdown", "HTML"],
         format: [
           "Article",
@@ -232,6 +251,7 @@ const app = createApp({
   template: `
     <div>
       <h1>Prompt Builder</h1>
+      <Intro />
       <Instructions />
       <div class="container">
         <div class="form-container">
