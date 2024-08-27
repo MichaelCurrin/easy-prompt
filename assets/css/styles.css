@@ -51,7 +51,7 @@ select {
   background-color: #f9f9f9;
 }
 
-button[type="submit"] {
+button {
   background-color: #2e7d32;
   color: white;
   padding: 10px 20px;
@@ -61,8 +61,8 @@ button[type="submit"] {
   font-size: 16px;
 }
 
-button[type="submit"]:hover {
-  background-color: #255c1c;
+button:hover {
+  background-color: #49913d;
 }
 
 pre {
@@ -74,6 +74,11 @@ pre {
   font-size: 14px;
   line-height: 1.5;
   overflow-x: auto;
+
+  white-space: pre-wrap;
+  /* Wraps text */
+  word-wrap: break-word;
+  /* Breaks long words */
 }
 
 code {

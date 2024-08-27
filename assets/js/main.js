@@ -89,11 +89,32 @@ const PromptForm = {
 
 const Result = {
   props: ['form'],
+  methods: {
+    async copyToClipboard() {
+      const resultText = document.getElementById('result-code').innerText;
+      const button = document.getElementById('copy-button'); // Ensure your button has this ID
+
+      try {
+        await navigator.clipboard.writeText(resultText);
+        console.log('Copied to clipboard!');
+
+        button.innerText = 'Copied!';
+
+        setTimeout(() => {
+          button.innerText = 'Copy';
+        }, 2000);
+
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    }
+  },
   template: `
     <div>
       <h2>Result</h2>
-      <p>Copy and paste this into your AI assistant prompt:</p>
-      <pre><code>## Topic&#10;&#10;{{ form.topic }}&#10;
+      <p>Paste this prompt into your AI assistant:</p>
+      <button id="copy-button" class="button" role="button"  @click="copyToClipboard">Copy</button>
+      <pre><code id="result-code">## Topic&#10;&#10;{{ form.topic }}&#10;
 ## Specification
 <template v-if="form.purpose">
 ### Purpose
@@ -207,6 +228,7 @@ const app = createApp({
       }
     };
   },
+
   template: `
     <div>
       <h1>Prompt Builder</h1>
