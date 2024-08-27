@@ -211,8 +211,14 @@ const app = createApp({
     <div>
       <h1>Prompt Builder</h1>
       <Instructions />
-      <PromptForm :form="form" :options="options" />
-      <Result :form="form" />
+      <div class="container">
+        <div class="form-container">
+          <PromptForm :form="form" :options="options" />
+        </div>
+        <div class="result-container">
+          <Result :form="form" />
+        </div>
+      </div>
     </div>
   `
 });
