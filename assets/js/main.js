@@ -17,7 +17,7 @@ const Instructions = {
     <div>
       <h2>Instructions</h2>
       <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
-      <p>Only the "Topic" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
+      <p>Only the "Request" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
     </div>
   `
 };
@@ -27,7 +27,7 @@ const PromptForm = {
   template: `
     <form>
       <div>
-        <label for="topic">Topic:</label>
+        <label for="topic">Request:</label>
         <input type="text" id="topic" v-model="form.topic" required />
         <p>e.g. "how to raise awareness of climate change", "best practices for remote work productivity", "budgeting for beginners"</p>
       </div>
@@ -46,17 +46,17 @@ const PromptForm = {
         </select>
       </div>
       <div>
-        <label for="length">Length:</label>
-        <select id="length" v-model="form.length">
-          <option value="">Select length</option>
-          <option v-for="value in options.length" :value="value" :key="value">{{ value }}</option>
-        </select>
-      </div>
-      <div>
         <label for="format">Output format:</label>
         <select id="format" v-model="form.format">
           <option value="">Select format</option>
           <option v-for="value in options.format" :value="value" :key="value">{{ value }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="length">Length:</label>
+        <select id="length" v-model="form.outputLength">
+          <option value="">Select length</option>
+          <option v-for="value in options.outputLength" :value="value" :key="value">{{ value }}</option>
         </select>
       </div>
       <div>
@@ -68,7 +68,7 @@ const PromptForm = {
         </select>
       </div>
       <div>
-        <label for="style">Language Style:</label>
+        <label for="style">Language style and tone:</label>
         <template v-for="value in options.style" :key="value">
           <label>
             <input type="checkbox" v-model="form.style" :value="value" />
@@ -123,48 +123,57 @@ const Result = {
       <h2>Result</h2>
       <p>Paste this prompt into your AI assistant:</p>
       <button id="copy-button" class="button" role="button"  @click="copyToClipboard">Copy</button>
-      <pre><code id="result-code">Write a piece about the topic given below under “Topic”.
-Ensure that your answer follows the guidance and limitations provided under “Specification”.
-Provide the answer only, without any preamble.
+      <pre><code id="result-code">## Request
+Write an answer using the following request and provide the answer only, without any preamble.
 
-## Topic
 {{ form.topic }}
 
-## Specification
+## Guidance and limitations
+
+Ensure that your answer follows what is outlined here.
+
 <template v-if="form.purpose">
 ### Purpose
 {{ form.purpose }}
-</template><template v-if="form.audience">
-### Audience
+</template>
+<template v-if="form.audience">
+### Target audience
 The audience is {{ form.audience }}.
-</template><template v-if="form.length">
-### Length
-The content length should be {{ form.length }}.
-</template><template v-if="form.asCodeblock || form.format">
-### Format
+</template>
+<template v-if="form.asCodeblock || form.format || form.outputLength">
+### Output format
 <template v-if="form.asCodeblock">
 Output as a codeblock with code written in {{ form.asCodeblock }}.
-</template><template v-if="form.asCodeblock || form.format">
-Write the content as {{ form.format }}
 </template>
-</template><template v-if="form.style.length">
-### Language style
+<template v-if="form.format">
+Write the content as {{ form.format }}.
+</template>
+<template v-if="form.outputLength">
+### Length
+The content length should be {{ form.outputLength }}.
+</template>
+<template v-if="form.style.length">
+### Language style and tone
 {{ form.style.join(', ') }}
-</template><template v-if="form.points">
+</template>
+<template v-if="form.points">
 ### Key Points
 Make sure to cover these key points in your answer:
 {{ form.points }}
-</template><template v-if="form.examples">
+</template>
+<template v-if="form.examples">
 ### Examples
 Here are some examples to guide you:
 \`\`\`
 {{ form.examples }}
 \`\`\`
-</template><template v-if="form.steps">
+</template>
+<template v-if="form.steps">
 ### Steps
 Make sure to cover these actions or steps in your answer:
 {{ form.steps }}
-</template><template v-if="form.notes">
+</template>
+<template v-if="form.notes">
 ### Additional Notes
 Please take into consideration the following additional notes:
 {{ form.notes }}
@@ -188,7 +197,7 @@ const app = createApp({
         topic: "Sample value",
         purpose: "",
         audience: "",
-        length: "",
+        outputLength: "",
         asCodeblock: "",
         format: "",
         style: [],
@@ -200,49 +209,48 @@ const app = createApp({
       options: {
         purpose: ["Inform", "Persuade", "Entertain", "Educate", "Inspire"],
         audience: [
-          "Adults",
-          "Kids",
-          "Professionals",
-          "Software engineers",
-          "Experts",
           "Beginners",
-          "Journalists",
+          "Kids",
+          "Students",
           "General public",
-          "The arts community",
-          "The scientific community"
+          "Professionals",
+          "Experts",
+          "Software engineers",
+          "Journalists",
         ],
-        length: ["short", "medium", "long", "a sentence", "a paragraph", 'a few paragraphs', "a page"],
+        outputLength: ["short (1-2 paragraphs)", "medium (3-5 paragraphs)", "long (6+ paragraphs)",
+          "a page"],
         asCodeblock: ["Markdown", "HTML"],
         format: [
+          "Outline of an article with headings and one line covering what will be covered under each",
           "Article",
           "Blog post",
+          "Social media post",
           "Bullet-points",
           "Numbered points",
           "Numbered points with bullet subpoints",
           "Outline of slide presentation",
-          "Script",
+          "Slide presentation with details for each slide",
           "Guide",
           "Tutorial",
           "Report",
           "Table",
           "Code",
-          "Summary",
-          "Skeleton or outline with placeholder values"
+          "Summary containing title, one paragraph summary, and bullet points for key takeways or action items",
+          "UML",
         ],
         style: [
-          "Expert",
-          "Formal",
-          "Informal",
-          "Optimistic",
-          "Cautious",
-          "Friendly",
-          "Professional",
+          "Assertive",
+          "Casual",
           "Conversational",
           "Curious",
-          "Assertive",
           "Encouraging",
-          "Surprised",
-          "Cooperative"
+          "Formal",
+          "Friendly",
+          "Humorous",
+          "Optimistic",
+          "Professional",
+          "Serious",
         ]
       }
     };
