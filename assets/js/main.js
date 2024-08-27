@@ -5,29 +5,28 @@ import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js"
 
 const template = `
   <div>
-    <h1>Prompt builder</h1>
-    <p>Prompt improvement tool to guide the LLM to consistent and high quality results.</p>
+    <h1>Prompt Builder</h1>
+
+    <p>A tool designed to enhance prompts, guiding the LLM (such as ChatGPT) toward consistent and high-quality results. Use this whether your topic is around creative writing, coding, or a professional article.</p>
+
+    <p>Crafting an effective prompt can be time-consuming, but this tool simplifies the process with a user-friendly format for entering relevant values. It generates a new combined prompt while keeping your original wording intact and allows you to select from recommended options in dropdown lists. By refining your prompt, you can achieve better LLM results from the start, minimizing revisions. This tool stitches relevant text pieces together without using AI. </p>
+
+    <p>Tip: For an AI-based option that updates wording and structure for longer prompts, consider <a href="https://promptperfect.jina.ai">PromptPerfect</a>.</p>
 
     <h2>Instructions</h2>
 
-    <p>
-      Choose from some recommended options that you would like to include for
-      the content of your prompt. A prompt is generated at the bottom. Then copy and
-      paste it into ChatGPT or your preferred LLM.
-    </p>
-    <p>
-      Only the "Topic" field is required while other fields are optional. Any blank
-      fields are omitted from the output to keep it short
-    </p>
-    <p>The output updates immediately as you change the inputs</p>
+    <p>Select from the recommended options to include in your prompt's content. A prompt will be generated instantly at the bottom, which you can copy and paste into an LLM.</p>
+
+    <p>Only the "Topic" field is mandatory; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
 
     <h2>Form</h2>
     <!-- TODO improvements. Move output to the right. Show samples for text inputs next to or inside. Make suggestions dynamic based on droplists. Add other field inputs and group them. Make some open text and see if there are other values to as a options. -->
     <!-- TODO give some preset buttons to choose from for common scenarios and that changes the form inputs    -->
-    <form @submit.prevent>
+    <form>
       <div>
         <label for="topic">Topic:</label>
         <input type="text" id="topic" v-model="form.topic" required />
+        <p>e.g. "how to raise awareness of climate change", "best practices for remote work productivity", "budgeting for beginners" </p>
       </div>
       <div>
         <label for="purpose">Purpose:</label>
