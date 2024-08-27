@@ -1,0 +1,21 @@
+/* Borrowed from the Vue CLI quickstart app's styling for the #app element. */
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+
+  padding-bottom: 30px;
+}
+
+header {
+  padding: 25px;
+}
+
+button {
+  color: white;
+  background-color: #41b883;
+  font-size-adjust: 0.6;
+  padding: 10px;
+}
