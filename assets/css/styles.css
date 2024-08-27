@@ -90,16 +90,13 @@ code {
   flex-direction: row;
 }
 
-.form-container {
+.container-item {
   width: 50%;
   padding: 1em;
   box-sizing: border-box;
 }
 
-.result-container {
-  width: 50%;
-  padding: 1em;
-  box-sizing: border-box;
+.container-item__border-left {
   border-left: 1px solid #ccc;
 }
 
@@ -114,8 +111,7 @@ code {
     flex-direction: column;
   }
 
-  .result-container,
-  .form-container {
+  .container-item {
     width: 100%;
     border-left: none;
   }

@@ -268,10 +268,10 @@ const app = createApp({
       <Intro />
       <Instructions />
       <div class="container">
-        <div class="form-container">
+        <div class="container-item">
           <PromptForm :form="form" :options="options" />
         </div>
-        <div class="result-container ">
+        <div class="container-item">
           <Result class="div__sticky" form="form" />
         </div>
       </div>
