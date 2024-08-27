@@ -1,21 +1,86 @@
-/* Borrowed from the Vue CLI quickstart app's styling for the #app element. */
 body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 
   padding-bottom: 30px;
 }
 
 header {
-  padding: 25px;
+  text-align: center;
+  padding-bottom: 1.5em;
 }
 
-button {
-  color: white;
-  background-color: #41b883;
-  font-size-adjust: 0.6;
+#app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0.2em 2em;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  margin-bottom: 40px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
   padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+button[type="submit"] {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #255c1c;
+}
+
+/* Additional custom styles for color scheme */
+body {
+  background-color: #f5f5f5;
+}
+
+pre {
+  background-color: #2d2d2d;
+  color: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+code {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: #f8f8f8;
 }
