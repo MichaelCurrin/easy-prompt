@@ -147,18 +147,19 @@ Ensure that your answer follows what is outlined here.
 The audience is {{ form.audience }}.
 </template>
 <template v-if="form.asCodeblock || form.format || form.outputLength">
-### Output format
-<template v-if="form.asCodeblock">
-Output as a codeblock with code written in {{ form.asCodeblock }}.
+  ### Output format
+  <template v-if="form.asCodeblock">
+  Output as a codeblock with code written in {{ form.asCodeblock }}.
+  </template>
+  <template v-if="form.format">
+  Write the content as {{ form.format }}.
+  </template>
+  <template v-if="form.outputLength">
+  ### Length
+  The content length should be {{ form.outputLength }}.
+  </template>
 </template>
-<template v-if="form.format">
-Write the content as {{ form.format }}.
-</template>
-<template v-if="form.outputLength">
-### Length
-The content length should be {{ form.outputLength }}.
-</template>
-<template v-if="form.style.length">
+<template v-if="form.style">
 ### Language style and tone
 {{ form.style.join(', ') }}
 </template>
