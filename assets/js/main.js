@@ -5,6 +5,7 @@ import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js"
 
 const Intro = {
   template: `
+    <h2>About</h2>
     <p>Crafting an effective prompt can be time-consuming, but this tool simplifies the process.
     It offers a user-friendly form which guides you to enter input and the process is even easier by choosing from preset values.
     Finally, all the inputs are combined as single prompt with structure and wording that LLM tools will understand. Whether for creative writing, business, or coding.</p>
@@ -25,6 +26,7 @@ const Instructions = {
 const PromptForm = {
   props: ['form', 'options'],
   template: `
+    <h2>Form</h2>
     <form>
       <div>
         <label for="topic">Request:</label>
@@ -119,7 +121,7 @@ const Result = {
     }
   },
   template: `
-    <div class="div__sticky">
+    <div>
       <h2>Result</h2>
       <p>Paste this prompt into your AI assistant:</p>
       <button id="copy-button" class="button" role="button"  @click="copyToClipboard">Copy</button>
@@ -262,12 +264,15 @@ const app = createApp({
       <Intro />
       <Instructions />
       <div class="container">
-        <div class="form-container">
+        <div class="form-container div__sticky">
           <PromptForm :form="form" :options="options" />
         </div>
         <div class="result-container">
           <Result :form="form" />
+      <Instructions />
+
         </div>
+
       </div>
     </div>
   `
