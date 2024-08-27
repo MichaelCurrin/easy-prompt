@@ -106,6 +106,12 @@ code {
   border-left: 1px solid #ccc;
 }
 
+.div__sticky {
+  position: sticky;
+  top: 0.5em;
+  z-index: 1;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

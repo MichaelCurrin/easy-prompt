@@ -119,7 +119,7 @@ const Result = {
     }
   },
   template: `
-    <div>
+    <div class="div__sticky">
       <h2>Result</h2>
       <p>Paste this prompt into your AI assistant:</p>
       <button id="copy-button" class="button" role="button"  @click="copyToClipboard">Copy</button>
