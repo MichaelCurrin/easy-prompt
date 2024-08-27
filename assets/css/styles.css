@@ -74,11 +74,8 @@ pre {
   font-size: 14px;
   line-height: 1.5;
   overflow-x: auto;
-
   white-space: pre-wrap;
-  /* Wraps text */
   word-wrap: break-word;
-  /* Breaks long words */
 }
 
 code {
@@ -117,8 +114,8 @@ code {
     flex-direction: column;
   }
 
-  .form-container,
-  .result-container {
+  .result-container,
+  .form-container {
     width: 100%;
     border-left: none;
   }

@@ -16,9 +16,13 @@ const Intro = {
 const Instructions = {
   template: `
     <div>
-      <h2>Instructions</h2>
-      <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
-      <p>Only the "Request" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
+      <details>
+        <summary>
+          <b>Instructions</b>
+        </summary>
+        <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
+        <p>Only the "Request" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
+      </details>
     </div>
   `
 };
@@ -124,7 +128,7 @@ const Result = {
     <div>
       <h2>Result</h2>
       <p>Paste this prompt into your AI assistant:</p>
-      <button id="copy-button" class="button" role="button"  @click="copyToClipboard">Copy</button>
+      <button id="copy-button" class="button" role="button" @click="copyToClipboard">Copy</button>
       <pre><code id="result-code">## Request
 Write an answer using the following request and provide the answer only, without any preamble.
 
@@ -264,15 +268,12 @@ const app = createApp({
       <Intro />
       <Instructions />
       <div class="container">
-        <div class="form-container div__sticky">
+        <div class="form-container">
           <PromptForm :form="form" :options="options" />
         </div>
-        <div class="result-container">
-          <Result :form="form" />
-      <Instructions />
-
+        <div class="result-container ">
+          <Result class="div__sticky" form="form" />
         </div>
-
       </div>
     </div>
   `
