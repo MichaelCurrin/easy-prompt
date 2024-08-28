@@ -89,7 +89,7 @@ const Result = {
       <h2>Prompt result</h2>
       <div class="div__sticky div__center">
       <button class="button" role="button" @click="copyToClipboard">
-        {{ buttonText }}
+        📋 <span>{{ buttonText }}</span>
       </button>
       </div>
       <pre><code ref="resultCode">${outputCode}</code></pre>
