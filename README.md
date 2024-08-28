@@ -1,5 +1,5 @@
 # Easy Prompt
-> A web app that allows you to quickly and easily add onto your existing LLM prompt to achieve high quality results
+> Extend your prompt to get high quality results from an LLM
 
 <!-- Badges generated with: https://michaelcurrin.github.io/badge-generator/ -->
 

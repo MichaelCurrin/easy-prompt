@@ -265,7 +265,6 @@ const app = createApp({
 
   template: `
     <div>
-      <h1>Prompt Builder</h1>
       <Intro />
       <Instructions />
       <div class="container">
