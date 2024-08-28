@@ -1,5 +1,5 @@
 import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js";
-import PromptForm from "./PromptForm.js";
+import Form from "./Form.js";
 import Result from "./Result.js";
 import { OPTIONS } from "./constants.js";
 
@@ -34,7 +34,7 @@ const app = createApp({
   components: {
     Intro,
     Instructions,
-    PromptForm,
+    Form,
     Result,
   },
   data() {
@@ -75,7 +75,7 @@ const app = createApp({
       <Instructions />
       <div class="container">
         <div class="container-item">
-          <PromptForm :form="form" :options="options" />
+          <Form :form="form" :options="options" />
         </div>
         <div class="container-item">
           <Result  :form="form" />

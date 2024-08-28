@@ -1,4 +1,4 @@
-const PromptForm = {
+const Form = {
   props: ["form", "options"],
   template: `
     <h2>Prompt settings</h2>
@@ -73,4 +73,4 @@ const PromptForm = {
   `,
 };
 
-export default PromptForm;
+export default Form;
