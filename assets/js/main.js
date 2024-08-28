@@ -6,12 +6,14 @@ import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js"
 const Intro = {
   template: `
     <h2>About</h2>
-    <p>Crafting an effective prompt can be time-consuming, but this tool simplifies the process.
-    It offers a user-friendly form which guides you to enter input and the process is even easier by choosing from preset values.
-    Finally, all the inputs are combined as single prompt with structure and wording that LLM tools will understand. Whether for creative writing, business, or coding.</p>
+    <p>
+      Crafting an effective prompt can be time-consuming, but this tool simplifies the process.
+      It offers a user-friendly form which guides you to enter input and the process is even easier by choosing from preset values.
+      Finally, all the inputs are combined as single prompt with structure and wording that LLM tools will understand. Whether for creative writing, business, or coding.
+    </p>
     <p>For more advanced prompt optimization, see an AI-based tool like <a href="https://promptperfect.jina.ai">PromptPerfect</a>.</p>
-  `
-}
+  `,
+};
 
 const Instructions = {
   template: `
@@ -24,11 +26,11 @@ const Instructions = {
         <p>Only the "Request" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
       </details>
     </div>
-  `
+  `,
 };
 
 const PromptForm = {
-  props: ['form', 'options'],
+  props: ["form", "options"],
   template: `
     <h2>Form</h2>
     <form>
@@ -99,30 +101,29 @@ const PromptForm = {
         <textarea id="notes" v-model="form.notes"></textarea>
       </div>
     </form>
-  `
+  `,
 };
 
 const Result = {
-  props: ['form'],
+  props: ["form"],
   methods: {
     async copyToClipboard() {
-      const resultText = document.getElementById('result-code').innerText;
-      const button = document.getElementById('copy-button');
+      const resultText = document.getElementById("result-code").innerText;
+      const button = document.getElementById("copy-button");
 
       try {
         await navigator.clipboard.writeText(resultText);
-        console.log('Copied to clipboard!');
+        console.log("Copied to clipboard!");
 
-        button.innerText = 'Copied!';
+        button.innerText = "Copied!";
 
         setTimeout(() => {
-          button.innerText = 'Copy';
+          button.innerText = "Copy";
         }, 2000);
-
       } catch (err) {
-        console.error('Failed to copy: ', err);
+        console.error("Failed to copy: ", err);
       }
-    }
+    },
   },
   template: `
     <div>
@@ -187,7 +188,7 @@ Please take into consideration the following additional notes:
 </template>
 </code></pre>
     </div>
-  `
+  `,
 };
 
 const app = createApp({
@@ -195,7 +196,7 @@ const app = createApp({
     Intro,
     Instructions,
     PromptForm,
-    Result
+    Result,
   },
   data() {
     return {
@@ -211,7 +212,7 @@ const app = createApp({
         points: "",
         examples: "",
         steps: "",
-        notes: ""
+        notes: "",
       },
       options: {
         purpose: ["Inform", "Persuade", "Entertain", "Educate", "Inspire"],
@@ -225,8 +226,12 @@ const app = createApp({
           "Software engineers",
           "Journalists",
         ],
-        outputLength: ["short (1-2 paragraphs)", "medium (3-5 paragraphs)", "long (6+ paragraphs)",
-          "a page"],
+        outputLength: [
+          "short (1-2 paragraphs)",
+          "medium (3-5 paragraphs)",
+          "long (6+ paragraphs)",
+          "a page",
+        ],
         asCodeblock: ["Markdown", "HTML"],
         format: [
           "Outline of an article with headings and one line covering what will be covered under each",
@@ -244,7 +249,7 @@ const app = createApp({
           "Table",
           "Code",
           "Summary containing title, one paragraph summary, and bullet points for key takeways or action items",
-          "UML",
+          "UML diagram",
         ],
         style: [
           "Assertive",
@@ -258,8 +263,8 @@ const app = createApp({
           "Optimistic",
           "Professional",
           "Serious",
-        ]
-      }
+        ],
+      },
     };
   },
 
@@ -276,7 +281,7 @@ const app = createApp({
         </div>
       </div>
     </div>
-  `
+  `,
 });
 
 app.mount("#app");
