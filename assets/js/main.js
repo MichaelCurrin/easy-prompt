@@ -37,7 +37,6 @@ const app = createApp({
   },
   data() {
     return {
-      output: "",
       form: {
         topic: "Sample value",
         purpose: "",
