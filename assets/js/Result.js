@@ -12,11 +12,11 @@ Ensure that your answer follows what is outlined here.
 
 <template v-if="form.purpose">
 ### Purpose
-{{ form.purpose }}
+The purpose of the piece is to: {{ form.purpose }}
 </template>
 <template v-if="form.audience">
-### Target audience
-The audience is {{ form.audience }}.
+### Audience
+The target audience is {{ form.audience }}.
 </template>
 <template v-if="form.asCodeblock || form.format || form.outputLength">
   ### Output format

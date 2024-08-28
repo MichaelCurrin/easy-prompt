@@ -22,6 +22,7 @@ const Instructions = {
           <b>Instructions</b>
         </summary>
         <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
+        <p>Your answers will be persisted so the form remembers what you entered. But everything is kept private and stored locally - your inputs are not sent across the internet.</p>
         <p>Only the "Request" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
       </details>
     </div>
