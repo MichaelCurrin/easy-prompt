@@ -58,7 +58,7 @@ Please take into consideration the following additional notes:
 {{ form.notes }}
 </template>`
   .replaceAll("\n<template", "<template")
-  .replace("\n  ", "\n");
+  .replaceAll("\n  ", "\n");
 
 const Result = {
   props: ["form"],
