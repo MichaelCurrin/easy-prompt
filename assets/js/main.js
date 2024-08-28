@@ -160,7 +160,7 @@ Write the content as {{ form.format }}.
 The content length should be {{ form.outputLength }}.
 </template>
 </template>
-<template v-if="form.style">
+<template v-if="form.style.length">
 ### Language style and tone
 {{ form.style.join(', ') }}
 </template>
