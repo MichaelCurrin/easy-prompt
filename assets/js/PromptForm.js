@@ -1,7 +1,7 @@
 const PromptForm = {
   props: ["form", "options"],
   template: `
-    <h2>Form</h2>
+    <h2>Prompt settings</h2>
     <form>
       <div>
         <label for="topic">Request:</label>

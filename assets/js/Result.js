@@ -57,8 +57,8 @@ Make sure to cover these actions or steps in your answer:
 Please take into consideration the following additional notes:
 {{ form.notes }}
 </template>`
+  .replaceAll("\n  ", "\n")
   .replaceAll("\n<template", "<template")
-  .replaceAll("\n  ", "\n");
 
 const Result = {
   props: ["form"],
@@ -86,11 +86,12 @@ const Result = {
   },
   template: `
     <div>
-      <h2>Result</h2>
-      <p>Paste this prompt into your AI assistant:</p>
+      <h2>Prompt result</h2>
+      <div class="div__sticky div__center">
       <button class="button" role="button" @click="copyToClipboard">
         {{ buttonText }}
       </button>
+      </div>
       <pre><code ref="resultCode">${outputCode}</code></pre>
     </div>
   `,
