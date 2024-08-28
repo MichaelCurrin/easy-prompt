@@ -1,6 +1,7 @@
 import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js";
 import PromptForm from "./PromptForm.js";
 import Result from "./Result.js";
+import { OPTIONS } from "./constants.js";
 
 const Intro = {
   template: `
@@ -51,57 +52,7 @@ const app = createApp({
         steps: "",
         notes: "",
       },
-      options: {
-        purpose: ["Inform", "Persuade", "Entertain", "Educate", "Inspire"],
-        audience: [
-          "Beginners",
-          "Kids",
-          "Students",
-          "General public",
-          "Professionals",
-          "Experts",
-          "Software engineers",
-          "Journalists",
-        ],
-        outputLength: [
-          "short (1-2 paragraphs)",
-          "medium (3-5 paragraphs)",
-          "long (6+ paragraphs)",
-          "a page",
-        ],
-        asCodeblock: ["Markdown", "HTML"],
-        format: [
-          "Outline of an article with headings and one line covering what will be covered under each",
-          "Article",
-          "Blog post",
-          "Social media post",
-          "Bullet-points",
-          "Numbered points",
-          "Numbered points with bullet subpoints",
-          "Outline of slide presentation",
-          "Slide presentation with details for each slide",
-          "Guide",
-          "Tutorial",
-          "Report",
-          "Table",
-          "Code",
-          "Summary containing title, one paragraph summary, and bullet points for key takeways or action items",
-          "UML diagram",
-        ],
-        style: [
-          "Assertive",
-          "Casual",
-          "Conversational",
-          "Curious",
-          "Encouraging",
-          "Formal",
-          "Friendly",
-          "Humorous",
-          "Optimistic",
-          "Professional",
-          "Serious",
-        ],
-      },
+      options: OPTIONS,
     };
   },
   watch: {
