@@ -47,5 +47,5 @@ export const OPTIONS = {
     "Optimistic",
     "Professional",
     "Serious",
-  ]
-}
+  ],
+};
