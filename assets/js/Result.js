@@ -56,23 +56,28 @@ Make sure to cover these actions or steps in your answer:
 ### Additional notes
 Please take into consideration the following additional notes:
 {{ form.notes }}
-</template>`.replaceAll("\n<template", "<template").replace('\n  ', '\n');
+</template>`
+  .replaceAll("\n<template", "<template")
+  .replace("\n  ", "\n");
 
 const Result = {
   props: ["form"],
+  data() {
+    return {
+      buttonText: "Copy",
+    };
+  },
   methods: {
     async copyToClipboard() {
-      const resultText = document.getElementById("result-code").innerText;
-      const button = document.getElementById("copy-button");
+      const resultText = this.$refs.resultCode.innerText;
 
       try {
         await navigator.clipboard.writeText(resultText);
         console.log("Copied to clipboard!");
-
-        button.innerText = "Copied!";
+        this.buttonText = "Copied!";
 
         setTimeout(() => {
-          button.innerText = "Copy";
+          this.buttonText = "Copy";
         }, 2000);
       } catch (err) {
         console.error("Failed to copy: ", err);
@@ -83,8 +88,10 @@ const Result = {
     <div>
       <h2>Result</h2>
       <p>Paste this prompt into your AI assistant:</p>
-      <button id="copy-button" class="button" role="button" @click="copyToClipboard">Copy</button>
-      <pre><code id="result-code">${outputCode}</code></pre>
+      <button class="button" role="button" @click="copyToClipboard">
+        {{ buttonText }}
+      </button>
+      <pre><code ref="resultCode">${outputCode}</code></pre>
     </div>
   `,
 };
