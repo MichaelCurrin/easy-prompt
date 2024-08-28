@@ -103,7 +103,20 @@ const app = createApp({
       },
     };
   },
-
+  watch: {
+    form: {
+      handler(newData) {
+        localStorage.setItem("formData", JSON.stringify(newData));
+      },
+      deep: true,
+    },
+  },
+  mounted() {
+    const savedData = localStorage.getItem("formData");
+    if (savedData) {
+      this.form = JSON.parse(savedData);
+    }
+  },
   template: `
     <div>
       <Intro />
