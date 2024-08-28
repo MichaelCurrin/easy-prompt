@@ -25,6 +25,17 @@
 </div>
 
 
+## Documentation
+
+No dependencies like Node or NPM are needed. This repo just has files which needed to be served as static assets.
+
+Setup and run:
+
+1. Clone the repo.
+1. Start a web server in the repo root. Recommended - use the Live Server extension for VS Code.
+1. Open in the browser.
+
+
 ## License
 
 Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
