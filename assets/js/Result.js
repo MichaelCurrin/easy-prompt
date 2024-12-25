@@ -86,7 +86,7 @@ const Result = {
   },
   template: `
     <div>
-      <h2>Prompt result</h2>
+      <h2>Generated prompt</h2>
       <div class="div__sticky div__center">
       <button class="button" role="button" @click="copyToClipboard">
         📋 <span>{{ buttonText }}</span>
