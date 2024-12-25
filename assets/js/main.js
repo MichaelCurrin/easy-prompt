@@ -1,5 +1,6 @@
 import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js";
 import Form from "./Form.js";
+import LLM from "./LLM.js";
 import Result from "./Result.js";
 import { OPTIONS } from "./constants.js";
 
@@ -20,7 +21,7 @@ const Instructions = {
     <div>
       <details>
         <summary>
-          <b>Instructions</b>
+          <b>Instructions for setting the prompt settings</b>
         </summary>
         <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
         <p>Your answers will be persisted so the form remembers what you entered. But everything is kept private and stored locally - your inputs are not sent across the internet.</p>
@@ -36,6 +37,7 @@ const app = createApp({
     Instructions,
     Form,
     Result,
+    LLM,
   },
   data() {
     return {
@@ -78,7 +80,10 @@ const app = createApp({
           <Form :form="form" :options="options" />
         </div>
         <div class="container-item">
-          <Result  :form="form" />
+          <Result :form="form" />
+        </div>
+        <div class="container-item">
+          <LLM />
         </div>
       </div>
     </div>

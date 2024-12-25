@@ -92,7 +92,7 @@ const Result = {
         📋 <span>{{ buttonText }}</span>
       </button>
       </div>
-      <pre><code ref="resultCode">${outputCode}</code></pre>
+      <pre><code id="resultCode" ref="resultCode">${outputCode}</code></pre>
     </div>
   `,
 };
