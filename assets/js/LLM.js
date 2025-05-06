@@ -15,7 +15,7 @@ const LLM = {
 
       try {
         await navigator.clipboard.writeText(resultText);
-        console.log("Copied to clipboard!");
+        console.debug("Copied to clipboard!");
         this.buttonText = "Copied!";
 
         setTimeout(() => {
