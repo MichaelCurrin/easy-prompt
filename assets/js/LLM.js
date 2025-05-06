@@ -1,4 +1,3 @@
-
 // TODO Render the Markdown in HTML
 // TODO set colors for buttons
 
@@ -59,8 +58,9 @@ const LLM = {
     template: `
     <div>
       <h2>LLM test</h2>
-      <p>Test your prompt against the <a href="https://pollinations.ai">pollinations.ai</a> API.
-      This does not require any authorization like signup or API key, however request are limited by IP to 20 requests per minute.</p>
+      <p>Test your prompt against the <a href="https://pollinations.ai">pollinations.ai</a> service's free API.
+      This does not require any authorization such as signup or API key, however, requests are limited by
+      IP to 20 requests per minute and may not succeed at peak usage times.</p>
       <div class="div__sticky div__center">
       <button class="button" role="button" @click="generate">
         🤖 <span>Generate</span>
