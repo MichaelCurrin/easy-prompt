@@ -12,7 +12,9 @@ const Intro = {
       It offers a user-friendly form which guides you to enter input and the process is even easier by choosing from preset values.
       Finally, all the inputs are combined as single prompt with structure and wording that LLM tools will understand. Whether for creative writing, business, or coding.
     </p>
-    <p>For more advanced prompt optimization, see an AI-based tool like <a href="https://promptperfect.jina.ai">PromptPerfect</a>.</p>
+    <p>Depending on your use case, you can tell the LLM to ask questions before responding, or to just make assumptions and to proceed without asking for further info.
+    </p>
+    <p><b>Recommended</b>: See one of the tools listed here under Prompt Writing Tools to optimize your prompt or check the Prompt Libraries to get ideas from existing prompts. Go to <a href="https://michaelcurrin.github.io/dev-resources/resources/artificial-intelligence/">AI - Dev Resources</a>.</p>
   `,
 };
 
