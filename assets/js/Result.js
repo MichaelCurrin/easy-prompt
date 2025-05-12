@@ -48,9 +48,10 @@ Make sure to cover these key points in your answer:
 <template v-if="form.examples">
 ### Examples
 Here are some examples to guide you:
-\`\`\`
+
+'''
 {{ form.examples }}
-\`\`\`
+'''
 </template>
 <template v-if="form.steps">
 ### Steps
