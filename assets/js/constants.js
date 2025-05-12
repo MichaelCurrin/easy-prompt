@@ -11,11 +11,11 @@ export const OPTIONS = {
     "Journalists",
   ],
   outputLength: [
+    "one line",
     "short (1-2 paragraphs)",
-    "medium (3-5 paragraphs)",
-    "long (6+ paragraphs)",
+    "medium length (3-5 paragraphs)",
     "a page",
-    "severap pages",
+    "several pages",
   ],
   asCodeblock: ["Markdown", "HTML"],
   format: [

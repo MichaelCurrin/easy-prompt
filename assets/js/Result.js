@@ -1,14 +1,19 @@
 // Note that inside a pre tag all the whitespace is rendered, which is not good
 // for this purpose. Since each template on a newline adds whitespace, that is
 // better stripped out after. And indenting is also better stripped out.
-const outputCode = `## Request
-Write an answer using the following request and provide the answer only, without any preamble.
+const outputCode = `Write an answer using the following request:
 
 {{ form.topic }}
 
 ## Guidance and limitations
 
 Ensure that your answer follows what is outlined here.
+
+### How to answer
+
+Provide the output for answer only.
+Do not give a preamble or intro.
+Do not give a conclusion or what else you can do.
 
 <template v-if="form.purpose">
 ### Purpose
