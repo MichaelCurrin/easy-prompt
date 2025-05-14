@@ -12,6 +12,7 @@ const Form = {
       customLength: "",
       dropdownCodeblock: "",
       customCodeblock: "",
+      customStyle: "",
     };
   },
   computed: {
@@ -30,6 +31,16 @@ const Form = {
     isCustomCodeblock() {
       return this.dropdownCodeblock === "custom";
     },
+    combinedStyles() {
+      const selectedStyles = this.form.style;
+      const customStyle = this.customStyle.trim();
+
+      if (!customStyle) {
+        return selectedStyles;
+      }
+
+      return [...selectedStyles, customStyle];
+    }
   },
   watch: {
     dropdownPurpose(newValue) {
@@ -91,6 +102,9 @@ const Form = {
       if (this.isCustomCodeblock) {
         this.form.asCodeblock = newValue;
       }
+    },
+    customStyle(newValue) {
+      this.form.customStyle = newValue.trim();
     },
   },
   template: `
@@ -210,6 +224,15 @@ const Form = {
             {{ value }}
           </label>
         </template>
+        <div class="input-row">
+          <input
+            type="text"
+            id="custom-style"
+            v-model="customStyle"
+            placeholder="Enter custom style..."
+            class="input-row__input"
+          />
+        </div>
       </div>
       <div>
         <label for="points">Key Points:</label>

@@ -36,9 +36,9 @@ The target audience is {{ form.audience }}.
   The content length should be {{ form.outputLength }}.
   </template>
 </template>
-<template v-if="form.style.length">
+<template v-if="form.style.length || form.customStyle">
 ### Language style and tone
-{{ form.style.join(', ') }}
+{{ form.style.length ? form.style.join(', ') : '' }}{{ form.customStyle ? (form.style.length ? ', ' : '') + form.customStyle : '' }}
 </template>
 <template v-if="form.points">
 ### Key points

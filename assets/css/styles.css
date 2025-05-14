@@ -140,3 +140,21 @@ code {
 form>div {
   margin-bottom: 1em;
 }
+
+/* Style for language style and tone section */
+form>div:has(label[for="style"]) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+form>div:has(label[for="style"]) label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0;
+}
+
+form>div:has(label[for="style"]) .input-row {
+  margin-top: 0.5em;
+}

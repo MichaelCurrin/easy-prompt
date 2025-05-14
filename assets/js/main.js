@@ -51,6 +51,7 @@ const app = createApp({
         asCodeblock: "",
         format: "",
         style: [],
+        customStyle: "",
         points: "",
         examples: "",
         steps: "",
