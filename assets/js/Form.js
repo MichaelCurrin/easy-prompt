@@ -40,7 +40,7 @@ const Form = {
       }
 
       return [...selectedStyles, customStyle];
-    }
+    },
   },
   watch: {
     dropdownPurpose(newValue) {
