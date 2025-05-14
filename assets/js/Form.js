@@ -36,7 +36,7 @@ const Form = {
       <div>
         <label for="purpose">Purpose:</label>
         <div class="purpose-inputs">
-          <div class="purpose-input-group">
+          <div class="input-row">
             <select id="purpose" v-model="dropdownPurpose">
               <option selected value="">Select purpose</option>
               <option v-for="value in options.purpose" :value="value" :key="value">{{ value }}</option>
@@ -48,7 +48,7 @@ const Form = {
               id="custom-purpose"
               v-model="customPurpose"
               placeholder="Enter custom purpose..."
-              class="custom-purpose-input"
+              class="input-row__input"
             />
           </div>
         </div>

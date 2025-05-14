@@ -122,7 +122,7 @@ code {
   margin-bottom: 15px;
 }
 
-.purpose-input-group {
+.input-row {
   display: flex;
   gap: 10px;
   align-items: flex-start;
@@ -130,41 +130,11 @@ code {
   width: 100%;
 }
 
-.purpose-input-group select,
-.purpose-input-group .custom-purpose-input {
+.input-row select,
+.input-row .input-row__input {
   flex: 1 1 0;
   min-width: 0;
   margin-bottom: 0;
-}
-
-.purpose-input-group select {
-  width: 200px;
-}
-
-.custom-purpose-input {
-  width: 200px;
-  margin-bottom: 0;
-}
-
-.purpose-radio-group {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 15px;
-}
-
-.radio-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: normal;
-  margin-bottom: 0;
-  cursor: pointer;
-}
-
-.radio-label input[type="radio"] {
-  width: auto;
-  margin: 0;
-  cursor: pointer;
 }
 
 .purpose-input-group select:disabled,
