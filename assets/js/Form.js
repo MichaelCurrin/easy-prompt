@@ -2,6 +2,7 @@ const Form = {
   props: ["form", "options"],
   data() {
     return {
+      CUSTOM_OPTION: "custom",
       dropdownPurpose: "",
       customPurpose: "",
       dropdownAudience: "",
@@ -17,19 +18,19 @@ const Form = {
   },
   computed: {
     isCustomPurpose() {
-      return this.dropdownPurpose === "custom";
+      return this.dropdownPurpose === this.CUSTOM_OPTION;
     },
     isCustomAudience() {
-      return this.dropdownAudience === "custom";
+      return this.dropdownAudience === this.CUSTOM_OPTION;
     },
     isCustomFormat() {
-      return this.dropdownFormat === "custom";
+      return this.dropdownFormat === this.CUSTOM_OPTION;
     },
     isCustomLength() {
-      return this.dropdownLength === "custom";
+      return this.dropdownLength === this.CUSTOM_OPTION;
     },
     isCustomCodeblock() {
-      return this.dropdownCodeblock === "custom";
+      return this.dropdownCodeblock === this.CUSTOM_OPTION;
     },
     combinedStyles() {
       const selectedStyles = this.form.style;
@@ -44,7 +45,7 @@ const Form = {
   },
   watch: {
     dropdownPurpose(newValue) {
-      if (newValue === "custom") {
+      if (newValue === this.CUSTOM_OPTION) {
         this.form.purpose = this.customPurpose;
       } else {
         this.form.purpose = newValue;
@@ -56,7 +57,7 @@ const Form = {
       }
     },
     dropdownAudience(newValue) {
-      if (newValue === "custom") {
+      if (newValue === this.CUSTOM_OPTION) {
         this.form.audience = this.customAudience;
       } else {
         this.form.audience = newValue;
@@ -68,7 +69,7 @@ const Form = {
       }
     },
     dropdownFormat(newValue) {
-      if (newValue === "custom") {
+      if (newValue === this.CUSTOM_OPTION) {
         this.form.format = this.customFormat;
       } else {
         this.form.format = newValue;
@@ -80,7 +81,7 @@ const Form = {
       }
     },
     dropdownLength(newValue) {
-      if (newValue === "custom") {
+      if (newValue === this.CUSTOM_OPTION) {
         this.form.outputLength = this.customLength;
       } else {
         this.form.outputLength = newValue;
@@ -92,7 +93,7 @@ const Form = {
       }
     },
     dropdownCodeblock(newValue) {
-      if (newValue === "custom") {
+      if (newValue === this.CUSTOM_OPTION) {
         this.form.asCodeblock = this.customCodeblock;
       } else {
         this.form.asCodeblock = newValue;
@@ -122,7 +123,7 @@ const Form = {
             <select id="purpose" v-model="dropdownPurpose">
               <option selected value="">Select purpose</option>
               <option v-for="value in options.purpose" :value="value" :key="value">{{ value }}</option>
-              <option value="custom">Custom...</option>
+              <option :value="CUSTOM_OPTION">Custom...</option>
             </select>
             <input
               v-show="isCustomPurpose"
@@ -142,7 +143,7 @@ const Form = {
             <select id="audience" v-model="dropdownAudience">
               <option value="">Select audience</option>
               <option v-for="value in options.audience" :value="value" :key="value">{{ value }}</option>
-              <option value="custom">Custom...</option>
+              <option :value="CUSTOM_OPTION">Custom...</option>
             </select>
             <input
               v-show="isCustomAudience"
@@ -162,7 +163,7 @@ const Form = {
             <select id="format" v-model="dropdownFormat">
               <option value="">Select format</option>
               <option v-for="value in options.format" :value="value" :key="value">{{ value }}</option>
-              <option value="custom">Custom...</option>
+              <option :value="CUSTOM_OPTION">Custom...</option>
             </select>
             <input
               v-show="isCustomFormat"
@@ -182,7 +183,7 @@ const Form = {
             <select id="length" v-model="dropdownLength">
               <option value="">Select length</option>
               <option v-for="value in options.outputLength" :value="value" :key="value">{{ value }}</option>
-              <option value="custom">Custom...</option>
+              <option :value="CUSTOM_OPTION">Custom...</option>
             </select>
             <input
               v-show="isCustomLength"
@@ -203,7 +204,7 @@ const Form = {
             <select id="asCodeblock" v-model="dropdownCodeblock">
               <option value="">Select output language</option>
               <option v-for="value in options.asCodeblock" :value="value" :key="value">{{ value }}</option>
-              <option value="custom">Custom...</option>
+              <option :value="CUSTOM_OPTION">Custom...</option>
             </select>
             <input
               v-show="isCustomCodeblock"
