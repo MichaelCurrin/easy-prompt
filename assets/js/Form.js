@@ -4,12 +4,32 @@ const Form = {
     return {
       dropdownPurpose: "",
       customPurpose: "",
+      dropdownAudience: "",
+      customAudience: "",
+      dropdownFormat: "",
+      customFormat: "",
+      dropdownLength: "",
+      customLength: "",
+      dropdownCodeblock: "",
+      customCodeblock: "",
     };
   },
   computed: {
     isCustomPurpose() {
       return this.dropdownPurpose === "custom";
-    }
+    },
+    isCustomAudience() {
+      return this.dropdownAudience === "custom";
+    },
+    isCustomFormat() {
+      return this.dropdownFormat === "custom";
+    },
+    isCustomLength() {
+      return this.dropdownLength === "custom";
+    },
+    isCustomCodeblock() {
+      return this.dropdownCodeblock === "custom";
+    },
   },
   watch: {
     dropdownPurpose(newValue) {
@@ -23,7 +43,55 @@ const Form = {
       if (this.isCustomPurpose) {
         this.form.purpose = newValue;
       }
-    }
+    },
+    dropdownAudience(newValue) {
+      if (newValue === "custom") {
+        this.form.audience = this.customAudience;
+      } else {
+        this.form.audience = newValue;
+      }
+    },
+    customAudience(newValue) {
+      if (this.isCustomAudience) {
+        this.form.audience = newValue;
+      }
+    },
+    dropdownFormat(newValue) {
+      if (newValue === "custom") {
+        this.form.format = this.customFormat;
+      } else {
+        this.form.format = newValue;
+      }
+    },
+    customFormat(newValue) {
+      if (this.isCustomFormat) {
+        this.form.format = newValue;
+      }
+    },
+    dropdownLength(newValue) {
+      if (newValue === "custom") {
+        this.form.outputLength = this.customLength;
+      } else {
+        this.form.outputLength = newValue;
+      }
+    },
+    customLength(newValue) {
+      if (this.isCustomLength) {
+        this.form.outputLength = newValue;
+      }
+    },
+    dropdownCodeblock(newValue) {
+      if (newValue === "custom") {
+        this.form.asCodeblock = this.customCodeblock;
+      } else {
+        this.form.asCodeblock = newValue;
+      }
+    },
+    customCodeblock(newValue) {
+      if (this.isCustomCodeblock) {
+        this.form.asCodeblock = newValue;
+      }
+    },
   },
   template: `
     <h2>Prompt settings</h2>
@@ -55,32 +123,84 @@ const Form = {
       </div>
       <div>
         <label for="audience">Audience:</label>
-        <select id="audience" v-model="form.audience">
-          <option value="">Select audience</option>
-          <option v-for="value in options.audience" :value="value" :key="value">{{ value }}</option>
-        </select>
+        <div class="audience-inputs">
+          <div class="input-row">
+            <select id="audience" v-model="dropdownAudience">
+              <option value="">Select audience</option>
+              <option v-for="value in options.audience" :value="value" :key="value">{{ value }}</option>
+              <option value="custom">Custom...</option>
+            </select>
+            <input
+              v-show="isCustomAudience"
+              type="text"
+              id="custom-audience"
+              v-model="customAudience"
+              placeholder="Enter custom audience..."
+              class="input-row__input"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <label for="format">Output format:</label>
-        <select id="format" v-model="form.format">
-          <option value="">Select format</option>
-          <option v-for="value in options.format" :value="value" :key="value">{{ value }}</option>
-        </select>
+        <div class="format-inputs">
+          <div class="input-row">
+            <select id="format" v-model="dropdownFormat">
+              <option value="">Select format</option>
+              <option v-for="value in options.format" :value="value" :key="value">{{ value }}</option>
+              <option value="custom">Custom...</option>
+            </select>
+            <input
+              v-show="isCustomFormat"
+              type="text"
+              id="custom-format"
+              v-model="customFormat"
+              placeholder="Enter custom format..."
+              class="input-row__input"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <label for="length">Length:</label>
-        <select id="length" v-model="form.outputLength">
-          <option value="">Select length</option>
-          <option v-for="value in options.outputLength" :value="value" :key="value">{{ value }}</option>
-        </select>
+        <div class="length-inputs">
+          <div class="input-row">
+            <select id="length" v-model="dropdownLength">
+              <option value="">Select length</option>
+              <option v-for="value in options.outputLength" :value="value" :key="value">{{ value }}</option>
+              <option value="custom">Custom...</option>
+            </select>
+            <input
+              v-show="isCustomLength"
+              type="text"
+              id="custom-length"
+              v-model="customLength"
+              placeholder="Enter custom length..."
+              class="input-row__input"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <label for="asCodeblock">Output as codeblock:</label>
         <p>Select if you want your content to be written as code in a codeblock, for easy copy and pasting the result.</p>
-        <select id="asCodeblock" v-model="form.asCodeblock">
-          <option value="">Select output language</option>
-          <option v-for="value in options.asCodeblock" :value="value" :key="value">{{ value }}</option>
-        </select>
+        <div class="codeblock-inputs">
+          <div class="input-row">
+            <select id="asCodeblock" v-model="dropdownCodeblock">
+              <option value="">Select output language</option>
+              <option v-for="value in options.asCodeblock" :value="value" :key="value">{{ value }}</option>
+              <option value="custom">Custom...</option>
+            </select>
+            <input
+              v-show="isCustomCodeblock"
+              type="text"
+              id="custom-codeblock"
+              v-model="customCodeblock"
+              placeholder="Enter custom codeblock..."
+              class="input-row__input"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <label for="style">Language style and tone:</label>

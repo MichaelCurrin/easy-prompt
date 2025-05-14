@@ -160,3 +160,7 @@ code {
   width: auto;
   margin: 0;
 }
+
+form>div {
+  margin-bottom: 1em;
+}
