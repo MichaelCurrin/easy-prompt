@@ -1,5 +1,30 @@
 const Form = {
   props: ["form", "options"],
+  data() {
+    return {
+      dropdownPurpose: "",
+      customPurpose: "",
+    };
+  },
+  computed: {
+    isCustomPurpose() {
+      return this.dropdownPurpose === "custom";
+    }
+  },
+  watch: {
+    dropdownPurpose(newValue) {
+      if (newValue === "custom") {
+        this.form.purpose = this.customPurpose;
+      } else {
+        this.form.purpose = newValue;
+      }
+    },
+    customPurpose(newValue) {
+      if (this.isCustomPurpose) {
+        this.form.purpose = newValue;
+      }
+    }
+  },
   template: `
     <h2>Prompt settings</h2>
     <form>
@@ -10,10 +35,23 @@ const Form = {
       </div>
       <div>
         <label for="purpose">Purpose:</label>
-        <select id="purpose" v-model="form.purpose">
-          <option selected value="">Select purpose</option>
-          <option v-for="value in options.purpose" :value="value" :key="value">{{ value }}</option>
-        </select>
+        <div class="purpose-inputs">
+          <div class="purpose-input-group">
+            <select id="purpose" v-model="dropdownPurpose">
+              <option selected value="">Select purpose</option>
+              <option v-for="value in options.purpose" :value="value" :key="value">{{ value }}</option>
+              <option value="custom">Custom...</option>
+            </select>
+            <input
+              v-show="isCustomPurpose"
+              type="text"
+              id="custom-purpose"
+              v-model="customPurpose"
+              placeholder="Enter custom purpose..."
+              class="custom-purpose-input"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <label for="audience">Audience:</label>
