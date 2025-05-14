@@ -112,7 +112,7 @@ const Form = {
     <form>
       <div>
         <label for="topic">Request:</label>
-        <input type="text" id="topic" v-model="form.topic" required />
+        <textarea id="topic" v-model="form.topic" required></textarea>
         <p>e.g. "how to raise awareness of climate change", "best practices for remote work productivity", "budgeting for beginners"</p>
       </div>
       <div>
