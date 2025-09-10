@@ -64,6 +64,7 @@ const app = createApp({
       form: {
         topic: "Sample value",
         purpose: "",
+        role: "",
         audience: "",
         outputLength: "",
         asCodeblock: "",

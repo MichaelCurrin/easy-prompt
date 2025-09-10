@@ -5,6 +5,8 @@ const Form = {
       CUSTOM_OPTION: "custom",
       dropdownPurpose: "",
       customPurpose: "",
+      dropdownRole: "",
+      customRole: "",
       dropdownAudience: "",
       customAudience: "",
       dropdownFormat: "",
@@ -19,6 +21,9 @@ const Form = {
   computed: {
     isCustomPurpose() {
       return this.dropdownPurpose === this.CUSTOM_OPTION;
+    },
+    isCustomRole() {
+      return this.dropdownRole === this.CUSTOM_OPTION;
     },
     isCustomAudience() {
       return this.dropdownAudience === this.CUSTOM_OPTION;
@@ -54,6 +59,18 @@ const Form = {
     customPurpose(newValue) {
       if (this.isCustomPurpose) {
         this.form.purpose = newValue;
+      }
+    },
+    dropdownRole(newValue) {
+      if (newValue === this.CUSTOM_OPTION) {
+        this.form.role = this.customRole;
+      } else {
+        this.form.role = newValue;
+      }
+    },
+    customRole(newValue) {
+      if (this.isCustomRole) {
+        this.form.role = newValue;
       }
     },
     dropdownAudience(newValue) {
@@ -131,6 +148,26 @@ const Form = {
               id="custom-purpose"
               v-model="customPurpose"
               placeholder="Enter custom purpose..."
+              class="input-row__input"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="role">Role:</label>
+        <div class="role-inputs">
+          <div class="input-row">
+            <select id="role" v-model="dropdownRole">
+              <option value="">Select role</option>
+              <option v-for="value in options.role" :value="value" :key="value">{{ value }}</option>
+              <option :value="CUSTOM_OPTION">Custom...</option>
+            </select>
+            <input
+              v-show="isCustomRole"
+              type="text"
+              id="custom-role"
+              v-model="customRole"
+              placeholder="Enter custom role..."
               class="input-row__input"
             />
           </div>

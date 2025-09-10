@@ -1,5 +1,10 @@
 export const OPTIONS = {
   purpose: ["Inform", "Educate", "Persuade", "Entertain", "Inspire"],
+  role: [
+    "Teacher",
+    "Software Engineer",
+    "Brainstorm partner",
+  ],
   audience: [
     "Beginners",
     "Kids",

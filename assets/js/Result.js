@@ -19,6 +19,10 @@ Do not give a conclusion or offer what else you can do.
 ### Purpose
 The purpose of the piece is to: {{ form.purpose }}
 </template>
+<template v-if="form.role">
+### Role
+Act as: {{ form.role }}.
+</template>
 <template v-if="form.audience">
 ### Audience
 The target audience is {{ form.audience }}.
