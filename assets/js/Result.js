@@ -1,7 +1,7 @@
 // Note that inside a pre tag all the whitespace is rendered, which is not good
 // for this purpose. Since each template on a newline adds whitespace, that is
 // better stripped out after. And indenting is also better stripped out.
-const outputCode = `Write an answer using the following info:
+const outputCode = `## Task
 
 {{ form.topic }}
 
