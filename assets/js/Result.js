@@ -74,7 +74,7 @@ const Result = {
   props: ["form"],
   data() {
     return {
-      buttonText: "Copy",
+      buttonText: "Copy result",
     };
   },
   methods: {
@@ -87,7 +87,7 @@ const Result = {
         this.buttonText = "Copied!";
 
         setTimeout(() => {
-          this.buttonText = "Copy";
+          this.buttonText = "Copy result";
         }, 2000);
       } catch (err) {
         console.error("Failed to copy: ", err);

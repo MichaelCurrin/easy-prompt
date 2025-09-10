@@ -8,7 +8,7 @@ const LLM = {
   },
   data() {
     return {
-      buttonText: "Copy",
+      buttonText: "Copy result",
       llmResult: "",
     };
   },
@@ -22,7 +22,7 @@ const LLM = {
         this.buttonText = "Copied!";
 
         setTimeout(() => {
-          this.buttonText = "Copy";
+          this.buttonText = "Copy result";
         }, 2000);
       } catch (err) {
         console.error("Failed to copy: ", err);
@@ -59,7 +59,7 @@ const LLM = {
   },
   template: `
     <div>
-      <h2>LLM test</h2>
+      <h2>Test with LLM</h2>
       <InfoDialog :button-text="'📘 ' + 'Show instructions'" title="Instructions for testing with Pollinations">
         <p>Test your prompt against the <a href="https://pollinations.ai">pollinations.ai</a> service's free API.</p>
         <p>This does not require any authorization such as signup or API key, however, requests are limited by IP to 20 requests per minute and may not succeed at peak usage times.</p>
