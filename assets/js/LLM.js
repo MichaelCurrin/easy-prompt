@@ -3,6 +3,9 @@
 
 const LLM = {
   props: ["promptText"],
+  components: {
+    InfoDialog: (await import("./InfoDialog.js")).default,
+  },
   data() {
     return {
       buttonText: "Copy",
@@ -57,9 +60,10 @@ const LLM = {
   template: `
     <div>
       <h2>LLM test</h2>
-      <p>Test your prompt against the <a href="https://pollinations.ai">pollinations.ai</a> service's free API.
-      This does not require any authorization such as signup or API key, however, requests are limited by
-      IP to 20 requests per minute and may not succeed at peak usage times.</p>
+      <InfoDialog :button-text="'📘 ' + 'Show instructions'" title="Instructions for testing with Pollinations">
+        <p>Test your prompt against the <a href="https://pollinations.ai">pollinations.ai</a> service's free API.</p>
+        <p>This does not require any authorization such as signup or API key, however, requests are limited by IP to 20 requests per minute and may not succeed at peak usage times.</p>
+      </InfoDialog>
       <div class="div__sticky div__center">
       <button class="button" role="button" @click="generate">
         🤖 <span>Generate</span>
