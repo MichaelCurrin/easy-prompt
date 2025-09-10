@@ -11,9 +11,9 @@ Ensure that your answer follows what is outlined here.
 
 ### How to answer
 
-Provide the output for answer only.
+Provide the output for the answer only.
 Do not give a preamble or intro.
-Do not give a conclusion or what else you can do.
+Do not give a conclusion or offer what else you can do.
 
 <template v-if="form.purpose">
 ### Purpose
