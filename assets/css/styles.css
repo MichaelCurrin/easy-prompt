@@ -114,6 +114,13 @@ code {
   background: white;
 }
 
+/* Generated prompt column sticky on desktop. */
+.container-item--sticky {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
 /* Basic dialog tweaks */
 dialog {
   max-width: 800px;
@@ -137,6 +144,18 @@ dialog::backdrop {
   .container-item {
     width: 100%;
     border-left: none;
+  }
+
+  /* Disable sticky on mobile; keep sticky for desktop only */
+  .div__sticky {
+    position: static;
+    top: auto;
+    z-index: auto;
+  }
+
+  .container-item--sticky {
+    position: static;
+    top: auto;
   }
 }
 

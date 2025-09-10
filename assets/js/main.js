@@ -101,7 +101,7 @@ const app = createApp({
         <div class="container-item">
           <Form :form="form" :options="options" />
         </div>
-        <div class="container-item">
+        <div class="container-item container-item--sticky">
           <Result :form="form" />
         </div>
         <div class="container-item">
