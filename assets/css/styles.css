@@ -12,8 +12,8 @@ body {
 #app {
   margin: 2em 1em;
   padding: 1em 2em;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #f0f2f5;
+  box-shadow: none;
 }
 
 .div__center {
@@ -94,12 +94,18 @@ code {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  gap: 1em;
 }
 
 .container-item {
   width: 50%;
   padding: 1em;
   box-sizing: border-box;
+  /* White card sections with light outline and subtle shadow */
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .container-item__border-left {
