@@ -125,8 +125,36 @@ const Form = {
       this.form.customStyle = newValue.trim();
     },
   },
+  methods: {
+    openInstructions() {
+      this.$refs.instructionsDialog.showModal();
+    },
+    closeInstructions() {
+      this.$refs.instructionsDialog.close();
+    },
+  },
   template: `
     <h2>Prompt settings</h2>
+    <div class="div__center" style="margin-bottom: 1rem;">
+      <button class="button" role="button" @click="openInstructions">📘 <span>Show instructions</span></button>
+      <dialog ref="instructionsDialog">
+        <form method="dialog">
+          <h3>Instructions for setting the prompt settings</h3>
+          <p>Fill in the form and see the prompt generated immediately. When you are done, click "Copy".</p>
+          <p>Your answers will be persisted so the form remembers what you entered. But everything is kept private and stored locally - your inputs are not sent across the internet.</p>
+          <p>Only the "Task" field is required; all other fields are optional. Any empty fields will be excluded from the output to maintain brevity.</p>
+          <p><b>Tip:</b> If you leave out a field that makes sense (e.g. audience for a blog post), the LLM may ask for info before proceeding. This can help quality but may slow you down. What could you do? Tell the LLM what you want for consistent results</p>
+          <ul>
+            <li>Ask for thoroughness: "Ask me questions before responding until you have all the necessary info".</li>
+            <li>Optimize for speed: "Choose for me, make assumptions, and proceed without asking for further info. Tell me what you chose before writing the piece".</li>
+            <li>Let it choose for a specific field, e.g. "Audience: Choose for me based on what is relevant for this task.</li>
+          </ul>
+          <div class="div__center" style="margin-top: 1rem;">
+            <button class="button">Close</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
     <form>
       <div>
         <label for="topic">Task:</label>
