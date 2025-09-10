@@ -29,7 +29,7 @@ const Instructions = {
   },
   template: `
     <div class="div__center">
-      <button class="button" role="button" @click="open">📘 <span>Instructions for setting the prompt settings</span></button>
+      <button class="button" role="button" @click="open">📘 <span>Show instructions</span></button>
       <dialog ref="instructionsDialog">
         <form method="dialog">
           <h3>Instructions for setting the prompt settings</h3>
