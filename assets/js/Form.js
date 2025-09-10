@@ -129,7 +129,7 @@ const Form = {
     <h2>Prompt settings</h2>
     <form>
       <div>
-        <label for="topic">Request:</label>
+        <label for="topic">Task:</label>
         <textarea id="topic" v-model="form.topic" required></textarea>
         <p>e.g. "how to raise awareness of climate change", "best practices for remote work productivity", "budgeting for beginners"</p>
       </div>
