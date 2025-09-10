@@ -32,7 +32,7 @@ No dependencies like Node or NPM are needed. This repo just has files which need
 Setup and run:
 
 1. Clone the repo.
-1. Start a web server in the repo root. Recommended - use the Live Server extension for VS Code.
+1. Start a web server in the repo root. _Recommended: use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension for VS Code so you don't need to use the terminal or install Node or Python._
 1. Open in the browser.
 
 
