@@ -50,6 +50,7 @@ const LLM = {
       if (!promptText) {
         throw new Error("Prompt cannot be empty");
       }
+
       const requestBody = {
         messages: [{ role: "user", content: promptText }],
       };

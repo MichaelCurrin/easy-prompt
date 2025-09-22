@@ -1,14 +1,14 @@
 const InfoDialog = {
-    props: ["buttonText", "title"],
-    methods: {
-        open() {
-            this.$refs.dialog.showModal();
-        },
-        close() {
-            this.$refs.dialog.close();
-        },
+  props: ["buttonText", "title"],
+  methods: {
+    open() {
+      this.$refs.dialog.showModal();
     },
-    template: `
+    close() {
+      this.$refs.dialog.close();
+    },
+  },
+  template: `
     <div class="div__center">
       <button class="button" role="button" @click="open">{{ buttonText }}</button>
       <dialog ref="dialog">

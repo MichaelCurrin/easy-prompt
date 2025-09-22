@@ -7,7 +7,7 @@ export const OPTIONS = {
     "marketing expert",
     "teacher",
     "coach",
-    "creative writer"
+    "creative writer",
   ],
   audience: [
     "Beginners",
