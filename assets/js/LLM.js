@@ -51,6 +51,8 @@ const LLM = {
         throw new Error("Prompt cannot be empty");
       }
 
+      this.llmResult = "Loading...";
+
       const requestBody = {
         messages: [{ role: "user", content: promptText }],
       };
