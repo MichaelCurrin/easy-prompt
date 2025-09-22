@@ -56,7 +56,6 @@ const LLM = {
       const requestBody = {
         messages: [{ role: "user", content: promptText }],
       };
-
       this.llmResult = await this.fetchPollinationsText(requestBody);
     },
   },
