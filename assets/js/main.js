@@ -1,4 +1,4 @@
-import { createApp } from "https://unpkg.com/vue@3.4.38/dist/vue.esm-browser.js";
+import { createApp } from "https://unpkg.com/vue@3.5.22/dist/vue.esm-browser.js";
 import { OPTIONS } from "./constants.js";
 import Form from "./Form.js";
 import InfoDialog from "./InfoDialog.js";
