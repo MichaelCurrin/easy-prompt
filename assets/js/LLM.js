@@ -13,6 +13,11 @@ const LLM = {
     };
   },
   methods: {
+    /**
+     * Copy the LLM result text to clipboard with visual feedback.
+     * @async
+     * @throws {Error} When clipboard API fails
+     */
     async copyToClipboard() {
       const resultText = this.$refs.llmResult.innerText;
 
@@ -28,6 +33,14 @@ const LLM = {
         console.error("Failed to copy: ", err);
       }
     },
+    /**
+     * Fetch AI-generated text from the Pollinations API.
+     * @async
+     * @param {Object} requestBody - Request payload containing messages
+     * @param {Array<Object>} requestBody.messages - Array of message objects with role and content
+     * @returns {Promise<string>} The AI-generated text response
+     * @throws {Error} When HTTP request fails
+     */
     async fetchPollinationsText(requestBody) {
       /* See https://github.com/pollinations/pollinations/blob/master/pollinations-react/src/hooks/usePollinationsText.js */
       try {
@@ -45,6 +58,11 @@ const LLM = {
         throw error;
       }
     },
+    /**
+     * Generate AI response from the current prompt text.
+     * @async
+     * @throws {Error} When prompt text is empty or API request fails
+     */
     async generate() {
       const promptText = document.getElementById("resultCode").innerText;
       if (!promptText) {

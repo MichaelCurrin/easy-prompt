@@ -48,12 +48,19 @@ const app = createApp({
   },
   watch: {
     form: {
+      /**
+       * Persist form data to localStorage when it changes.
+       * @param {Object} newData - The updated form data object
+       */
       handler(newData) {
         localStorage.setItem("formData", JSON.stringify(newData));
       },
       deep: true,
     },
   },
+  /**
+   * Restore saved form data from localStorage when component mounts.
+   */
   mounted() {
     const savedData = localStorage.getItem("formData");
     if (savedData) {

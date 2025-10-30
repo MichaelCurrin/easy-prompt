@@ -78,6 +78,11 @@ const Result = {
     };
   },
   methods: {
+    /**
+     * Copy the generated prompt text to clipboard with visual feedback.
+     * @async
+     * @throws {Error} When clipboard API fails
+     */
     async copyToClipboard() {
       const resultText = this.$refs.resultCode.innerText;
 

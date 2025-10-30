@@ -19,24 +19,52 @@ const Form = {
     };
   },
   computed: {
+    /**
+     * Check if the custom purpose option is selected.
+     * @returns {boolean} True if custom purpose option is selected
+     */
     isCustomPurpose() {
       return this.dropdownPurpose === this.CUSTOM_OPTION;
     },
+    /**
+     * Check if the custom role option is selected.
+     * @returns {boolean} True if custom role option is selected
+     */
     isCustomRole() {
       return this.dropdownRole === this.CUSTOM_OPTION;
     },
+    /**
+     * Check if the custom audience option is selected.
+     * @returns {boolean} True if custom audience option is selected
+     */
     isCustomAudience() {
       return this.dropdownAudience === this.CUSTOM_OPTION;
     },
+    /**
+     * Check if the custom format option is selected.
+     * @returns {boolean} True if custom format option is selected
+     */
     isCustomFormat() {
       return this.dropdownFormat === this.CUSTOM_OPTION;
     },
+    /**
+     * Check if the custom length option is selected.
+     * @returns {boolean} True if custom length option is selected
+     */
     isCustomLength() {
       return this.dropdownLength === this.CUSTOM_OPTION;
     },
+    /**
+     * Check if the custom codeblock option is selected.
+     * @returns {boolean} True if custom codeblock option is selected
+     */
     isCustomCodeblock() {
       return this.dropdownCodeblock === this.CUSTOM_OPTION;
     },
+    /**
+     * Combine selected style options with custom style input.
+     * @returns {Array<string>} Combined array of all selected and custom styles
+     */
     combinedStyles() {
       const selectedStyles = this.form.style;
       const customStyle = this.customStyle.trim();
@@ -49,6 +77,10 @@ const Form = {
     },
   },
   watch: {
+    /**
+     * Synchronize form purpose field when dropdown selection changes.
+     * @param {string} newValue - The newly selected dropdown value
+     */
     dropdownPurpose(newValue) {
       if (newValue === this.CUSTOM_OPTION) {
         this.form.purpose = this.customPurpose;
@@ -56,11 +88,19 @@ const Form = {
         this.form.purpose = newValue;
       }
     },
+    /**
+     * Update form purpose when custom purpose input changes.
+     * @param {string} newValue - The new custom purpose text
+     */
     customPurpose(newValue) {
       if (this.isCustomPurpose) {
         this.form.purpose = newValue;
       }
     },
+    /**
+     * Synchronize form role field when dropdown selection changes.
+     * @param {string} newValue - The newly selected dropdown value
+     */
     dropdownRole(newValue) {
       if (newValue === this.CUSTOM_OPTION) {
         this.form.role = this.customRole;
@@ -68,11 +108,19 @@ const Form = {
         this.form.role = newValue;
       }
     },
+    /**
+     * Update form role when custom role input changes.
+     * @param {string} newValue - The new custom role text
+     */
     customRole(newValue) {
       if (this.isCustomRole) {
         this.form.role = newValue;
       }
     },
+    /**
+     * Synchronize form audience field when dropdown selection changes.
+     * @param {string} newValue - The newly selected dropdown value
+     */
     dropdownAudience(newValue) {
       if (newValue === this.CUSTOM_OPTION) {
         this.form.audience = this.customAudience;
@@ -80,11 +128,19 @@ const Form = {
         this.form.audience = newValue;
       }
     },
+    /**
+     * Update form audience when custom audience input changes.
+     * @param {string} newValue - The new custom audience text
+     */
     customAudience(newValue) {
       if (this.isCustomAudience) {
         this.form.audience = newValue;
       }
     },
+    /**
+     * Synchronize form format field when dropdown selection changes.
+     * @param {string} newValue - The newly selected dropdown value
+     */
     dropdownFormat(newValue) {
       if (newValue === this.CUSTOM_OPTION) {
         this.form.format = this.customFormat;
@@ -92,11 +148,19 @@ const Form = {
         this.form.format = newValue;
       }
     },
+    /**
+     * Update form format when custom format input changes.
+     * @param {string} newValue - The new custom format text
+     */
     customFormat(newValue) {
       if (this.isCustomFormat) {
         this.form.format = newValue;
       }
     },
+    /**
+     * Synchronize form output length field when dropdown selection changes.
+     * @param {string} newValue - The newly selected dropdown value
+     */
     dropdownLength(newValue) {
       if (newValue === this.CUSTOM_OPTION) {
         this.form.outputLength = this.customLength;
@@ -104,11 +168,19 @@ const Form = {
         this.form.outputLength = newValue;
       }
     },
+    /**
+     * Update form output length when custom length input changes.
+     * @param {string} newValue - The new custom length text
+     */
     customLength(newValue) {
       if (this.isCustomLength) {
         this.form.outputLength = newValue;
       }
     },
+    /**
+     * Synchronize form codeblock field when dropdown selection changes.
+     * @param {string} newValue - The newly selected dropdown value
+     */
     dropdownCodeblock(newValue) {
       if (newValue === this.CUSTOM_OPTION) {
         this.form.asCodeblock = this.customCodeblock;
@@ -116,11 +188,19 @@ const Form = {
         this.form.asCodeblock = newValue;
       }
     },
+    /**
+     * Update form codeblock when custom codeblock input changes.
+     * @param {string} newValue - The new custom codeblock text
+     */
     customCodeblock(newValue) {
       if (this.isCustomCodeblock) {
         this.form.asCodeblock = newValue;
       }
     },
+    /**
+     * Update form custom style when custom style input changes.
+     * @param {string} newValue - The new custom style text
+     */
     customStyle(newValue) {
       this.form.customStyle = newValue.trim();
     },

@@ -1,9 +1,15 @@
 const InfoDialog = {
   props: ["buttonText", "title"],
   methods: {
+    /**
+     * Open the modal dialog.
+     */
     open() {
       this.$refs.dialog.showModal();
     },
+    /**
+     * Close the modal dialog.
+     */
     close() {
       this.$refs.dialog.close();
     },
